@@ -22,36 +22,45 @@ Basically the opportunities are limitless because of using Selenium. This acts a
 Before getting the benefits of not spending time on checking the activity a few settings must be completed in `config.py`:
 
 * Credentials:
-    `'facebook': {'email': 'user@facebook.com',
+    ```
+    'facebook': {'email': 'user@facebook.com',
                  'password': 'thebestpassword'
-                 },`
+                 }, 
+    ```
     and 
-    `'linkedin': {'email': 'user@linkedin.com',
+    ```
+    'linkedin': {'email': 'user@linkedin.com',
                  'password': 'anotherbestpassword'
                  }`
-
+    ```
 * Path to chrome driver
-    `chrome_driver_path = /path/to/chromedriver`
+    ```
+    chrome_driver_path = /path/to/chromedriver
+    ```
 
 * [Optionally] Configure what checks should be done __[by default all are checked]__
- `linkedin_checks = {
-    'message_check': True,
-    'notification_check': True,
-    'connection_invitation_check': True
-}`
+ ```
+    linkedin_checks = {
+        'message_check': True,
+        'notification_check': True,
+        'connection_invitation_check': True
+    }
+```
 and 
-`facebook_checks = {
+```
+facebook_checks = {
     'message_check': True,
     'notification_check': True,
     'friend_request_check': True
-}`
+}
+```
 
 #### Downsides
 Is cool not to check facebook and linkedin (and possibly other platforms in the future) but there are a couple of downsides of this project of which I am aware of:
 1. Having to add your credentials (password especially) in plain text in a config file is **not cool**
-            * I am working on removing that confing and use the already logged in browser
+      * I am working on removing that confing and use the already logged in browser
 2. The speed in ...not great: ~9-10 seconds for one platform
-            * WIP
+      * WIP
 3. Bugs probably...
 4. Heavy tailored for actual state of platforms, if they will change, an update will be needed
         
