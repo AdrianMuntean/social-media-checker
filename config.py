@@ -15,6 +15,10 @@ linkedin_checks = {
     'connection_invitation_check': True
 }
 
+linkedin_actions = {
+    'accept_all_invites': True
+}
+
 facebook_checks = {
     'message_check': True,
     'notification_check': True,

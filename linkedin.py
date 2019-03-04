@@ -56,12 +56,26 @@ def check_messages():
             print("0 messages")
 
 
+def approve_all_invites_if_needed(param):
+    if config.linkedin_actions['accept_all_invites']:
+        browser.find_element_by_id('mynetwork-nav-item').click()
+        try:
+            WebDriverWait(browser, 10).until(EC.visibility_of_element_located((By.XPATH, "//h3[@class='flex-1 t-18 t-black t-normal']")))
+            accept_button = browser.find_elements_by_xpath("//button[@class='invitation-card__action-btn button-secondary-medium ']")
+            for button in accept_button:
+                print("  **** Accepted %s" % button.text[14:])
+                button.click()
+        except TimeoutException:
+            print("   ****Could not approve %s invites****" % param)
+
+
 def check_connection_invite():
     if config.linkedin_checks['connection_invitation_check']:
         unread = browser.find_elements_by_xpath("//a[@data-link-to='mynetwork']//span[@class='nav-item__badge-count']")
         unread_count_text = [x.text for x in unread]
         if len(unread_count_text) > 0:
             print("You have %s new invite(s))" % unread_count_text[0])
+            approve_all_invites_if_needed(int(unread_count_text[0]))
         else:
             print("0 invites")
 
