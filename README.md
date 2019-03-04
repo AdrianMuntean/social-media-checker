@@ -45,6 +45,11 @@ Before getting the benefits of not spending time on checking the activity a few 
         'notification_check': True,
         'connection_invitation_check': True
     }
+
+    linkedin_actions = {
+    	'accept_all_invites': True
+    }
+
 ```
 and 
 ```
@@ -53,6 +58,39 @@ facebook_checks = {
     'notification_check': True,
     'friend_request_check': True
 }
+```
+
+After all these settings are completed, the script must be started with
+```
+    sh start_linkedin_checker.sh
+```
+and/or
+```
+    sh start_fb_checker.sh
+```
+
+#### Output
+The output (at the moment) is some plain text formatted a bit to be more readable:
+
+```
+Hello Adrian Muntean, checking for Linkedin:
+
+----------------------
+You have 1 new notification(s)
+  ->         Victor Pascu reshared a post
+0 messages
+You have 1 new invite(s))
+----------------------
+```
+or 
+```
+Hello Adrian Muntean, checking for Facebook:
+
+----------------------
+0 notifications
+0 messages
+0 friend requests
+----------------------
 ```
 
 #### Downsides
